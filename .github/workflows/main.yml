@@ -26,4 +26,6 @@ jobs:
       
       - name: Unit-test the app
         run: ng test
-  
+        
+      - name: E2E test the app
+        run: ng e2e
