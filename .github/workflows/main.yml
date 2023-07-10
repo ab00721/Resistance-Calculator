@@ -16,7 +16,7 @@ jobs:
         with: 
           node-version: 14
           cache: 'npm'
-          cashe-dependency-path: '**/package-lock.json'
+          cache-dependency-path: '**/package-lock.json'
           
       - name: Install Angular-cli globally
         run: npm install -g @angular/cli@9
