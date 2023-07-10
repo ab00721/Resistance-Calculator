@@ -31,10 +31,10 @@ jobs:
         run: npm install protractor --save-dev
         
       - name: Update Webdriver
-        run: npm webdriver-manager update
+        run: npx webdriver-manager update
         
       - name: Start webdriver
-        run: npm webdriver-manager start
+        run: npx webdriver-manager start
         
       - name: E2E test the app
         run: ng e2e
