@@ -27,8 +27,5 @@ jobs:
       - name: Unit-test the app
         run: ng test
         
-      - name: Update WebDriver
-        run: npx webdriver-manager update
-        
       - name: E2E test the app
         run: ng e2e
