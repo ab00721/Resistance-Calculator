@@ -28,7 +28,7 @@ jobs:
         run: ng test
         
       - name: Update WebDriver
-        run: npm run webdriver-update
+        run: npx run webdriver-update
         
       - name: E2E test the app
         run: ng e2e
