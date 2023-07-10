@@ -16,7 +16,7 @@ jobs:
         with: 
           node-version: 14
           cache: 'npm'
-          cashe-dependency-path: '**/package-lock.json'
+          cache-dependency-path: '**/package-lock.json'
           
       - name: Install Angular-cli globally
         run: npm install -g @angular/cli@9
@@ -27,8 +27,11 @@ jobs:
       - name: Unit-test the app
         run: ng test
         
-      - name: Update WebDriver
-        run: npm run webdriver-update
+      - name: Install Protractor
+        run: npm install protractor --save-dev
+        
+      - name: Update Webdriver
+        run: ./node_modules/protractor/bin/webdriver-manager update
         
       - name: E2E test the app
         run: ng e2e
