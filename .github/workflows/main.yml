@@ -1,0 +1,29 @@
+name: resistors
+
+on:
+  push: 
+    branches: [ main ]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with: 
+          node-version: 14
+          cache: 'npm'
+          cashe-dependency-path: '**/package-lock.json'
+          
+      - name: Install Angular-cli globally
+        run: npm install -g @angular/cli@9
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Unit-test the app
+        run: ng test
+  
