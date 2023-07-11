@@ -1,25 +1,13 @@
-FROM node:14.21.2 as build
+FROM node:14.21.2
 
 WORKDIR /app
 
-RUN npm install -g http-server
-
 COPY package*.json ./
-
 RUN npm install
 
 COPY . .
 
-RUN npm run build --prod
-
-FROM node:14.21.2-alpine
-
-WORKDIR /app
-
-COPY --from=build /app/dist/cs6261project4 .
-
-RUN npm install http-server
-
-EXPOSE 4200
+RUN npm install -g http-server
+RUN ng build
 
 CMD ["http-server", "-p", "4200"]
