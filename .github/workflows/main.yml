@@ -34,3 +34,9 @@ jobs:
         
       - name: E2E test the app
         run: ng e2e
+        
+      - name: Build Docker
+        run: docker build -t project4 .
+        
+      - name: Run Docker 
+        run: docker run -d -p 4200:4200 project4
