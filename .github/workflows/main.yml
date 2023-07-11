@@ -10,8 +10,15 @@ jobs:
     runs-on: self-hosted
     
     steps:
+      - name: Stop and Delete existing Docker container
+        run: |
+          docker stop project4-container || true
+          docker rm project4-container || true
+      - name: Delete existing Docker image
+        run: |
+          docker rmi project4-image || true
+          
       - uses: actions/checkout@v3
-      
       - uses: actions/setup-node@v3
         with: 
           node-version: 14
@@ -35,3 +42,15 @@ jobs:
         
       - name: E2E test the app
         run: ng e2e
+        
+      - name: Build Docker image
+        run: docker build -t project4-image .
+        
+      - name: Run Docker container 
+        run: docker run -d -p 4200:4200 --name project4-container project4-image
+        
+      - name: Wait for application to start
+        run: sleep 10
+        
+      - name: Check application in browser
+        run: curl http://localhost:4200
