@@ -1,9 +1,0 @@
-﻿{
-  "agentId": 22,
-  "agentName": "cs6261-vm21",
-  "poolId": 1,
-  "poolName": "Default",
-  "serverUrl": "https://pipelines.actions.githubusercontent.com/0Wh2VruhxtjXm5DAPJVefOyjok26qcSZDdgoH4dIqWpZPIHngB",
-  "gitHubUrl": "https://github.com/ab00721/cs6261project4",
-  "workFolder": "_work"
-}
