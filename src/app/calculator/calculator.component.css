@@ -1,0 +1,10 @@
+.content-wrapper {
+  border: 1px solid Black;
+  border-radius: 5px;
+  margin: 30px;
+  padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}

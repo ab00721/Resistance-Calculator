@@ -1,1 +1,49 @@
-<p>calculator works!</p>
+<div class="content-wrapper">
+
+  <div *ngIf="allColorsSelected()">
+    <h3>Resistance:</h3>
+  </div>
+
+  <div *ngIf="!allColorsSelected()">{{ message }}</div>
+
+  <div class="dropdown-group">
+    <!-- Digits -->
+    <h5>Digits:</h5>
+    <select [(ngModel)]='selectedColors[0]' (ngModelChange)="updateSelectedColors()">
+      <option value="">Select color</option>
+      <option *ngFor="let color of digitColorCode" [value]="color">{{ color }}</option>
+    </select>
+    <select [(ngModel)]='selectedColors[1]' (ngModelChange)="updateSelectedColors()">
+      <option value="">Select color</option>
+      <option *ngFor="let color of digitColorCode" [value]="color">{{ color }}</option>
+    </select>
+    <select [(ngModel)]='selectedColors[2]' (ngModelChange)="updateSelectedColors()">
+      <option value="">Select color</option>
+      <option *ngFor="let color of digitColorCode" [value]="color">{{ color }}</option>
+    </select>
+  </div>
+
+  <div class="dropdown-group">
+    <!-- Multiplier -->
+    <h5>Multiplier:</h5>
+    <select [(ngModel)]='selectedColors[3]' (ngModelChange)="updateSelectedColors()">
+      <option value="">Select color</option>
+      <option *ngFor="let color of multiplierColorCode" [value]="color">{{ color }}</option>
+    </select>
+  </div>
+
+  <div class="dropdown-group">
+    <!-- Tolerance -->
+    <h5>Tolerance:</h5>
+    <select [(ngModel)]='selectedColors[4]' (ngModelChange)="updateSelectedColors()">
+      <option value="">Select color</option>
+     <option *ngFor="let color of toleranceColorCode" [value]="color">{{ color }}</option>
+    </select>
+  </div>
+
+  <h4>Band Colors:</h4>
+  <ul>
+    <li *ngFor="let color of selectedColors">{{ color }}</li>
+  </ul>
+
+</div>
