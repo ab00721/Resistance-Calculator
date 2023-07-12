@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculateService } from '../services/calculate.service';
 
 @Component({
   selector: 'app-calculator',
@@ -6,10 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
+  public digitColorCode = ['Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White'];
+  public multiplierColorCode = ['Black','Brown','Red','Orange','Yellow','Green','Blue'];
+  public toleranceColorCode = ['Brown','Red','Green','Blue','Violet','Gold','Silver'];
 
-  constructor() { }
+  public selectedColors: string[] = ['', '', '', '', ''];
+  public message: string;
+
+  constructor(private CalculateService: CalculateService) {
+    this.message = 'Please select color of each band';
+ }
 
   ngOnInit(): void {
+  }
+
+  updateSelectedColors() {
+    if (this.allColorsSelected()) {
+      this.message = '';
+    } else {
+      this.message = 'Please select color of each band';
+    }
+    for (let i = 0; i < this.selectedColors.length; i++) {
+      this.selectedColors[i] = this.selectedColors[i];
+    }
+  }
+
+  allColorsSelected() {
+    return this.selectedColors.every(color => color !== '');
   }
 
 }
