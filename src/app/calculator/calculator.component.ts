@@ -13,9 +13,11 @@ export class CalculatorComponent implements OnInit {
 
   public selectedColors: string[] = ['', '', '', '', ''];
   public message: string;
+  public resistance: string;
 
-  constructor(private CalculateService: CalculateService) {
+  constructor(private calculateService: CalculateService) {
     this.message = 'Please select color of each band';
+    this.resistance = '';
  }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class CalculatorComponent implements OnInit {
   updateSelectedColors() {
     if (this.allColorsSelected()) {
       this.message = '';
+      this.resistance = this.calculateService.calculateResistance(this.selectedColors);
     } else {
       this.message = 'Please select color of each band';
     }
