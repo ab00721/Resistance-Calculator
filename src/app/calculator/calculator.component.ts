@@ -12,13 +12,10 @@ export class CalculatorComponent implements OnInit {
   public toleranceColorCode = ['Brown','Red','Green','Blue','Violet','Gold','Silver'];
 
   public selectedColors: string[] = ['', '', '', '', ''];
-  public message: string;
-  public resistance: string;
+  public message: string = 'Please select color of each band';
+  public resistance: string = '';
 
-  constructor(private calculateService: CalculateService) {
-    this.message = 'Please select color of each band';
-    this.resistance = '';
- }
+  constructor(private calculateService: CalculateService) { }
 
   ngOnInit(): void {
   }
