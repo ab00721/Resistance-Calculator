@@ -6,9 +6,11 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install -g @angular/cli
+
 COPY . .
 
 RUN npm install -g http-server
-RUN ng build
+RUN node_modules/.bin/ng build
 
-CMD ["http-server", "-p", "4200"]
+CMD ["http-server", "dist/cs6261project4", "-p", "4200"]
