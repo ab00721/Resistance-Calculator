@@ -2,6 +2,7 @@
 
   <div *ngIf="allColorsSelected()">
     <h3>Resistance:</h3>
+    {{ resistance }}
   </div>
 
   <div *ngIf="!allColorsSelected()">{{ message }}</div>
@@ -40,10 +41,5 @@
      <option *ngFor="let color of toleranceColorCode" [value]="color">{{ color }}</option>
     </select>
   </div>
-
-  <h4>Band Colors:</h4>
-  <ul>
-    <li *ngFor="let color of selectedColors">{{ color }}</li>
-  </ul>
 
 </div>
